@@ -5,8 +5,12 @@ import struct
 
 from hashlib import md5
 
-from Crypto.Cipher import ARC4, AES
-from Crypto.Hash import SHA256
+try:
+    from Crypto.Cipher import ARC4, AES
+    from Crypto.Hash import SHA256
+except ModuleNotFoundError:
+    from crypto.Cipher import ARC4, AES
+    from crypto.Hash import SHA256
 
 from .types.native import HexString, Stream, String
 
